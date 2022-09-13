@@ -16,9 +16,9 @@ export function Model3(props) {
     <group {...props}  position={[0, 2, 4]} rotation={[0, -20.3, 0]} dispose={null} scale={[5, 5, 5]} castShadow>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh castShadow geometry={nodes.Object_2.geometry} material={materials.Banner} />
-        <mesh castShadow geometry={nodes.Object_3.geometry} material={materials.Birch_Fence} />
+        {/* <mesh castShadow geometry={nodes.Object_3.geometry} material={materials.Birch_Fence} />
         <mesh castShadow geometry={nodes.Object_4.geometry} material={materials.Block_of_Coal} />
-        <mesh castShadow geometry={nodes.Object_5.geometry} material={materials.Block_of_Iron} />
+        <mesh castShadow geometry={nodes.Object_5.geometry} material={materials.Block_of_Iron} /> */}
         <mesh castShadow geometry={nodes.Object_6.geometry} material={materials.Block_of_Iron} />
         <mesh castShadow geometry={nodes.Object_7.geometry} material={materials.Block_of_Quartz} />
         <mesh castShadow geometry={nodes.Object_8.geometry} material={materials.Bricks} />
@@ -34,12 +34,12 @@ export function Model3(props) {
         <mesh castShadow geometry={nodes.Object_18.geometry} material={materials.Colored_Terracotta} />
         <mesh castShadow geometry={nodes.Object_19.geometry} material={materials.Cyan_Shulker_Box} />
         <mesh castShadow geometry={nodes.Object_20.geometry} material={materials.Dropper} />
-        <mesh castShadow geometry={nodes.Object_21.geometry} material={materials.End_Gateway} />
-        <mesh castShadow geometry={nodes.Object_22.geometry} material={materials.End_Stone_Bricks} />
-        <mesh castShadow geometry={nodes.Object_23.geometry} material={materials.Fence} />
+        {/* <mesh castShadow geometry={nodes.Object_21.geometry} material={materials.End_Gateway} />
+        <mesh castShadow geometry={nodes.Object_22.geometry} material={materials.End_Stone_Bricks} /> */}
+        {/* <mesh castShadow geometry={nodes.Object_23.geometry} material={materials.Fence} />
         <mesh castShadow geometry={nodes.Object_24.geometry} material={materials.Glowstone} />
-        <mesh castShadow geometry={nodes.Object_25.geometry} material={materials.Hopper} />
-        <mesh castShadow geometry={nodes.Object_26.geometry} material={materials.Iron_Bars} />
+        <mesh castShadow geometry={nodes.Object_25.geometry} material={materials.Hopper} /> */}
+        {/* <mesh castShadow geometry={nodes.Object_26.geometry} material={materials.Iron_Bars} />
         <mesh castShadow geometry={nodes.Object_27.geometry} material={materials.Iron_Trapdoor} />
         <mesh castShadow geometry={nodes.Object_28.geometry} material={materials.Lime_Shulker_Box} />
         <mesh castShadow geometry={nodes.Object_29.geometry} material={materials.Obsidian} />
@@ -56,7 +56,7 @@ export function Model3(props) {
         <mesh castShadow geometry={nodes.Object_40.geometry} material={materials.Stone_Bricks} />
         <mesh castShadow geometry={nodes.Object_41.geometry} material={materials.Wall_Sign} />
         <mesh castShadow geometry={nodes.Object_42.geometry} material={materials.Wool} />
-        <mesh castShadow geometry={nodes.Object_43.geometry} material={materials.Yellow_Shulker_Box} />
+        <mesh castShadow geometry={nodes.Object_43.geometry} material={materials.Yellow_Shulker_Box} /> */}
       </group>
     </group>
   )
