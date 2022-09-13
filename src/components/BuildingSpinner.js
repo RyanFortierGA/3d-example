@@ -72,8 +72,8 @@ const CameraController = () => {
             <div className="structureSelect">
                 <h3>Structures</h3>
                 <div className="structSelectors" onClick={mChange}>
-                    <span>Panorama</span>
-                    <span>Chalet</span>
+                    <span className={currentModel === 'Panorama' ? 'active' : ''}>Panorama</span>
+                    <span className={currentModel === 'Chalet' ? 'active' : ''}>Chalet</span>
                     <span>Delta Vista</span>
                     <span>Premier</span>
                     <span>Anova Vista</span>

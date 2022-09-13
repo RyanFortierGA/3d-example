@@ -53,10 +53,14 @@ body,
             font-size: 28px;
             line-height: 159.5%;
             color: #606060;        
-            &:hover, .active{
+            &:hover{
                 color: #000000;
                 cursor: pointer;
             }
+        }
+        .active{
+            color: #000000;
+            cursor: pointer;
         }
       }
       .customizeButton{
