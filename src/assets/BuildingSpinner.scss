@@ -12,6 +12,7 @@ body{
     .container{
         margin: auto;
         max-width: 1440px;
+        padding: 24px;
     }
 
     img{
@@ -30,6 +31,7 @@ body,
   .spinnerTop{
       display: flex;
       max-width: 1440px;
+      padding: 24px;
       margin: auto;
       h3{
         font-family: 'Lekton';
@@ -75,6 +77,7 @@ body,
   .spinnerBottom{
       display: flex;
       max-width: 1440px;
+      padding: 24px;
       margin: auto;
       .spinnerBottom_left{
         display: flex;
