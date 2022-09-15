@@ -1,10 +1,13 @@
 import React, { useEffect, useState, Suspense }  from "react";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Canvas, useThree  } from "@react-three/fiber";
-import { softShadows } from "@react-three/drei"
+import { OrbitControls, } from "three/examples/jsm/controls/OrbitControls";
+import { Canvas, useThree,   } from "@react-three/fiber";
+import { softShadows, Environment } from "@react-three/drei"
 import '../assets/BuildingSpinner.scss';
 import { Model } from '../assets/models/Stadium-2.js'
 import { Model3 } from '../assets/models/Stadium-3.js'
+import field from '../assets/backgrounds/field_bg.hdr'
+import grasslands from '../assets/backgrounds/grasslands_bg.hdr'
+import city from '../assets/backgrounds/city_bg.hdr'
 
 softShadows()
 
@@ -38,7 +41,9 @@ const CameraController = () => {
           controls.screenSpacePanning = true;
           controls.minPolarAngle = 1.4; 
           controls.maxPolarAngle = 1.4; 
-          controls.rotateSpeed = .7;
+          controls.panSpeed  = 0.4;
+          controls.rotateSpeed  = 0.4;
+       
         },
         [camera, gl]
     );
@@ -82,7 +87,7 @@ const CameraController = () => {
         <button className={customOpen ? 'customizeButton active-button' : 'customizeButton'} onClick={() => { setCustomOpen(!customOpen) }}>{customOpen ? 'customizing' : 'customize?'}</button>
         </div>
       <div className="mainArea" id="mArea">
-        <div className={'container'}>
+        <div className={'containers'}>
             <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }} >
                 <CameraController/>
                 <fog attach="fog" args={["lightgray", 0, 40]} />
@@ -123,6 +128,8 @@ const CameraController = () => {
                 shadow-camera-top={25}
                 shadow-camera-bottom={ -25}
                 /> }
+                {/* <Environment background={true} files={city} /> */}
+
                 {spotLight && <pointLight position={[0, 10, 0]} intensity={0.2} power={.2} color="white" decay={4} castShadow/>}
 
                 <group position={[0, -3.5, 0]}>

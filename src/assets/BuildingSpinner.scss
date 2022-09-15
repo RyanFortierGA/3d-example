@@ -4,9 +4,10 @@
 .buildingSpinner{
     margin-bottom: 60px;
 }
-canvas{
+.buildingSpinner canvas{
     height: 480px;
-    cursor: ew-resize;
+    cursor: move;
+    display: block !important;
 }
 body{
     .container{
