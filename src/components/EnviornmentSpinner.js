@@ -244,7 +244,7 @@ export default function EnviornmentSpinner() {
        loader.style.display="flex"
        setTimeout(() => {
           loader.style.display= "none" 
-       }, 2000);
+       }, 2500);
     }
 
     return (<>
