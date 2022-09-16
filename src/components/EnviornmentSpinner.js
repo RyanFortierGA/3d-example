@@ -238,13 +238,16 @@ export default function EnviornmentSpinner() {
         renderer.render(scene, camera);
         env.radius = params.radius;
         env.height = params.height;
+        const loader = document.getElementById('loader')
+        loader.style.display= "none" 
+
     }
     const load = () => {
        const loader = document.getElementById('loader')
        loader.style.display="flex"
-       setTimeout(() => {
-          loader.style.display= "none" 
-       }, 2500);
+    //    setTimeout(() => {
+    //       loader.style.display= "none" 
+    //    }, 2500);
     }
 
     return (<>
