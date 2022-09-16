@@ -5,3 +5,27 @@
 #envSpinner:first-of-type{
     display: none !important;
 }
+.loader{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    right: 0px;
+    top: 0;
+    z-index: 1001;
+    background-color:rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.change{
+    right: 15px;
+    top: 50%;
+    z-index: 1003;
+    background: green;
+    color: #fffdf5;
+    padding: 5px;
+    position: fixed;
+    pointer-events: none;
+}

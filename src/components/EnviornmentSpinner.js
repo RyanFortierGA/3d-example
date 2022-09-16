@@ -1,4 +1,4 @@
-import React, { useEffect }  from "react";
+import React, { useEffect,useState }  from "react";
 import * as THREE from 'three';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -9,15 +9,14 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import building1 from '../assets/models/building1.glb'
 import field from '../assets/backgrounds/field_bg.hdr'
 import city from '../assets/backgrounds/city_bg.hdr'
-import grasslands from '../assets/backgrounds/grasslands_bg.hdr'
-
+// import grasslands from '../assets/backgrounds/grasslands_bg.hdr'
+import snow from '../assets/backgrounds/snow_bg.hdr'
 import shadowMap from '../assets/images/shadow2.png'
-
 import '../assets/EnviornmentSpinner.scss';
-
+import DotLoader from "react-spinners/DotLoader";
 
 export default function EnviornmentSpinner() {
-
+    const [loading, setLoading] = useState(false)
     const params = {
         height: 20,
         radius: 440,
@@ -30,12 +29,12 @@ export default function EnviornmentSpinner() {
         dodecMetalness: 1,
         dodecClearcoat: 1,
         dodecRoughness: 0.8,
-        cubeColor: 0xff0000,
+        cubeColor: 0x00ff00,
         cubeMetalness: 1,
         cubeClearcoat: 1,
         cubeRoughness: 0.8,
     };
-    let camera, scene, renderer, env, env2, env3;
+    let camera, scene, renderer, env;
 
     const initialize = async () => {
 
@@ -52,8 +51,10 @@ export default function EnviornmentSpinner() {
        env = new GroundProjectedEnv(envMap1);
        env.scale.setScalar(100);
        scene.add(env);
-
+       
+       scene.background = envMap1;
        scene.environment = envMap1;
+
 
        const dracoLoader = new DRACOLoader();
        dracoLoader.setDecoderPath('js/libs/draco/gltf/');
@@ -167,34 +168,43 @@ export default function EnviornmentSpinner() {
        circleFolder.add( params, 'circleClearcoat', -20, 20).onChange( function() { building_3.material.clearcoat = params.circleClearcoat } );
 
        //dodec
+       dodecFolder.addColor( params, 'dodecColor' ).onChange( function() { building_1.material.color.set( params.dodecColor ); } );
        dodecFolder.add( params, 'dodecMetalness', -20, 20).onChange( function() { building_1.material.metalness = params.dodecMetalness } );
        dodecFolder.add( params, 'dodecRoughness', -20, 20).onChange( function() { building_1.material.roughness = params.dodecRoughness } );
        dodecFolder.add( params, 'dodecClearcoat', -20, 20).onChange( function() { building_1.material.clearcoat = params.dodecClearcoat } );
         //cube
+       cubeFolder.addColor( params, 'cubeColor' ).onChange( function() { building_2.material.color.set( params.cubeColor ); } );
        cubeFolder.add( params, 'cubeMetalness', -20, 20).onChange( function() { building_2.material.metalness = params.cubeMetalness } );
        cubeFolder.add( params, 'cubeRoughness', -20, 20).onChange( function() { building_2.material.roughness = params.cubeRoughness } );
        cubeFolder.add( params, 'cubeClearcoat', -20, 20).onChange( function() { building_2.material.clearcoat = params.cubeClearcoat } );
 
        //map render
-       gui.add(params, 'backdrop', 1,3,1).onChange( async function() {
+       gui.add(params, 'backdrop', 1,3,1).onChange(async function() {
         let environment = null
         let environmentMap = null
+        load()
         if(params.backdrop === 1){
             environmentMap = await hdrLoader.loadAsync(field);
         } 
         else if(params.backdrop === 2) {
-            console.log(params.backdrop)
             environmentMap = await hdrLoader.loadAsync(city);
         }
         else{ 
-            environmentMap = await hdrLoader.loadAsync(grasslands);
+            environmentMap = await hdrLoader.loadAsync(snow);
         }
         environmentMap.mapping = THREE.EquirectangularReflectionMapping;
         environment = new GroundProjectedEnv(environmentMap);
         environment.scale.setScalar(100);
         scene.add(environment);
+        scene.background = environmentMap;
+        scene.environment = environmentMap;
+        document.elementFromPoint(400, 400).click();
+        setTimeout(() => {
+            render()
+        }, 100);
        } );
-       render();
+
+       render(false);
        });
 
        renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -224,14 +234,25 @@ export default function EnviornmentSpinner() {
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     }
-
     const render = () => {
         renderer.render(scene, camera);
         env.radius = params.radius;
         env.height = params.height;
     }
+    const load = () => {
+       const loader = document.getElementById('loader')
+       loader.style.display="flex"
+       setTimeout(() => {
+          loader.style.display= "none" 
+       }, 2000);
+    }
 
-    return (
-        <div id="container"></div>
-   );
+    return (<>
+        <div id="container">
+        </div>
+        <div className="loader" id="loader">
+            <DotLoader color="#d5dcef" size={100} loading={true} />
+        </div> 
+        
+   </>);
 }
