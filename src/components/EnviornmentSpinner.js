@@ -46,6 +46,7 @@ export default function EnviornmentSpinner() {
        const hdrLoader = new RGBELoader();
        
        const envMap1 = await hdrLoader.loadAsync(field);
+
        envMap1.mapping = THREE.EquirectangularReflectionMapping;
        env = new GroundProjectedEnv(envMap1);
        env.scale.setScalar(100);
@@ -183,7 +184,7 @@ export default function EnviornmentSpinner() {
         let environmentMap = null
         load()
         if(params.backdrop === 1){
-            environmentMap = await hdrLoader.loadAsync(field);
+            environmentMap = envMap1;
         } 
         else if(params.backdrop === 2) {
             environmentMap = await hdrLoader.loadAsync(city);
