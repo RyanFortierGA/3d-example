@@ -1,4 +1,4 @@
-import React, { useEffect,useState }  from "react";
+import React, { useEffect  }  from "react";
 import * as THREE from 'three';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -16,7 +16,6 @@ import '../assets/EnviornmentSpinner.scss';
 import DotLoader from "react-spinners/DotLoader";
 
 export default function EnviornmentSpinner() {
-    const [loading, setLoading] = useState(false)
     const params = {
         height: 20,
         radius: 440,

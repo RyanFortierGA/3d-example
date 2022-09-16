@@ -1,13 +1,13 @@
 import React, { useEffect, useState, Suspense }  from "react";
 import { OrbitControls, } from "three/examples/jsm/controls/OrbitControls";
 import { Canvas, useThree,   } from "@react-three/fiber";
-import { softShadows, Environment } from "@react-three/drei"
+import { softShadows } from "@react-three/drei"
 import '../assets/BuildingSpinner.scss';
 import { Model } from '../assets/models/Stadium-2.js'
 import { Model3 } from '../assets/models/Stadium-3.js'
-import field from '../assets/backgrounds/field_bg.hdr'
-import grasslands from '../assets/backgrounds/grasslands_bg.hdr'
-import city from '../assets/backgrounds/city_bg.hdr'
+// import field from '../assets/backgrounds/field_bg.hdr'
+// import grasslands from '../assets/backgrounds/grasslands_bg.hdr'
+// import city from '../assets/backgrounds/city_bg.hdr'
 
 softShadows()
 
