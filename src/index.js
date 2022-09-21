@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import BuildingSpinner from './components/BuildingSpinner';
+// import BuildingSpinner from './components/BuildingSpinner';
 import EnviornmentSpinner from './components/EnviornmentSpinner';
 
 import Grid from './assets/images/grid-placeholder-2.png';
