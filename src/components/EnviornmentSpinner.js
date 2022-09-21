@@ -178,8 +178,8 @@ export default function EnviornmentSpinner() {
 
         const spotLight = new THREE.PointLight( 0xFFFFFF, 1, 100 );
         spotLight.position.set(0, 30, 0) 
-        spotLight.intensity=440 
-        spotLight.power=440 
+        spotLight.intensity=200 
+        spotLight.power=200 
         spotLight.decay=4 
         spotLight.castShadow = true
         spotLight.name = "spotLight";
@@ -252,6 +252,13 @@ export default function EnviornmentSpinner() {
           scene.remove(scene.getObjectByName( "dirLightH", true ))
           scene.add(helper)
        })
+      lightingFolder.add(lightingParams, 'dirIntensity', 0, 100 ).onChange( function() {dirLight.intensity = lightingParams.dirIntensity;
+          render() 
+          scene.remove(scene.getObjectByName( "dirLight", true ))
+          scene.add(dirLight)
+          scene.remove(scene.getObjectByName( "dirLightH", true ))
+          scene.add(helper)
+       })
        //spot light
         lightingFolder.add( params, 'spotLight').onChange( function() {
             spotLightToggle()
@@ -270,6 +277,14 @@ export default function EnviornmentSpinner() {
           scene.add(spotLightHelper)
        })
        lightingFolder.add(lightingParams, 'spotLightZ', -60, 60 ).onChange( function() {spotLight.position.setZ(lightingParams.spotLightZ); render() 
+          scene.remove(scene.getObjectByName( "spotLight", true ))
+          scene.add(spotLight)
+          scene.remove(scene.getObjectByName( "spotLightH", true ))
+          scene.add(spotLightHelper)
+       })
+        lightingFolder.add(lightingParams, 'spotIntensity', 0, 400, 25 ).onChange( function() {spotLight.intensity = lightingParams.spotIntensity;
+          spotLight.power = lightingParams.spotIntensity;
+          render() 
           scene.remove(scene.getObjectByName( "spotLight", true ))
           scene.add(spotLight)
           scene.remove(scene.getObjectByName( "spotLightH", true ))
