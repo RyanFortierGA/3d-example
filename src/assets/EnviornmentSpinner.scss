@@ -2,6 +2,7 @@
     height: 800px;
     background: #fffdf5;
 }
+//needed for dev
 // #envSpinner:first-of-type{
 //     z-index: -1;
 //     position: absolute;
@@ -9,7 +10,7 @@
 // #envSpinner:last-of-type{
 //     z-index:100;
 //     position: absolute;
-
+//     display: none;
 // }
 .loader{
     display: none;
